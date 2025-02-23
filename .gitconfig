@@ -1,0 +1,27 @@
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[core]
+    editor = nano
+    excludesfile = ~/.gitignore_global
+
+[color]
+    ui = true
+
+[credential]
+    helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
+[user]
+	name = vangaugh
+	email = vangaughm1@gmail.com
+
+[commit]
+	gpgsign = true
+
+[init]
+    defaultBranch = main
