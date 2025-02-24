@@ -1,0 +1,90 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "MesloLGS Nerd Font, monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": false,
+  "editor.formatOnPaste": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineHeight": 0,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.validate": [
+    "vue",
+    "react",
+    "typescript",
+    "html",
+    "javascript"
+  ],
+  "explorer.openEditors.visible": 1,
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "onWindowChange",
+  "markdown.preview.fontSize": 36,
+  "screencastMode.keyboardOptions": {
+    "showCommandGroups": false,
+    "showCommands": false,
+    "showKeybindings": true,
+    "showKeys": false,
+    "showSingleEditorCursorMoves": true
+  },
+  "search.exclude": {
+    "**/*.code-search": true,
+    "**/bower_components": true,
+    "**/node_modules": true
+  },
+  "search.useIgnoreFiles": false,
+  "terminal.integrated.fontSize": 14,
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 1,
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.navigationControl.enabled": false,
+  "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
+}
