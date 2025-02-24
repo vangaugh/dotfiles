@@ -74,7 +74,8 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Pipe my public key to my clipboard.
-alias pubkey="more ~/.ssh/id_vg-macmini.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pbcopy="more ~/.ssh/id_vg-macmini.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pbgitcopy="more ~/.ssh/git_ssh_key.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 ## USEFUL COMMANDS
 

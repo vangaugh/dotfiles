@@ -46,7 +46,7 @@ export EDITOR="/opt/homebrew/bin/nano"
 export VISUAL="$EDITOR"
 
 # JAVA PATH
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home"
 export PATH="$PATH:$JAVA_HOME/bin"
 
 # ANDROID SDK PATHS
@@ -68,6 +68,9 @@ export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# TAB COMPLETION
+autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
