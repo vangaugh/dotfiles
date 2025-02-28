@@ -14,12 +14,13 @@ alias sss="source ~/.zshrc"
 # SHORTCUTS
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Projects"
-alias repo="~/Projects/github_repos"
 alias config='/opt/homebrew/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# Change .wget-hsts file location
+alias wget="wget --hsts-file ~/.local/wget-hsts"
+
 # USING COLORLS COMMAND TO MAKE LL AND LS LOOK AWESOME
-alias ls="colorls --color=always -h --sd"
+alias ls='gls --color -h --group-directories-first'
 
 # ECHO PATH
 alias path='echo -e ${PATH//:/\\n}'
@@ -50,6 +51,7 @@ alias cat="bat -n --paging=never"
 
 # DELETE .DS_Store FILES
 alias ds="find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied""
+alias icic="find . -type f \( -name "Icon'$'\r'" -o -name "._Icon'$'\r'" \) -delete -print 2>&1 | grep -v "Permission denied""
 
 # SHOW/HIDE HIDDEN FILES IN FINDER
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -59,8 +61,8 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 alias androidvm="nohup emulator -avd Android_2024_VM -no-snapshot -no-boot-anim -camera-front webcam0 &"
 
 # PYTHON VIRTUAL ENVIRONMENT
-# alias ve='python3 -m venv venv && source venv/bin/activate'
-# alias reqinstall='python3 -m pip install -r requirements.txt'
+alias ve='python3 -m venv venv && source venv/bin/activate'
+alias reqinstall='python3 -m pip install -r requirements.txt'
 
 # UPDATE BREW && FULL SYSTEM UPDATE
 alias brewup="brew update && brew upgrade && brew autoremove && brew cleanup --prune=all && brew doctor"

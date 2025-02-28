@@ -45,6 +45,9 @@ bindkey '^[[B' history-substring-search-down
 export EDITOR="/opt/homebrew/bin/nano"
 export VISUAL="$EDITOR"
 
+# MEGA-CMD
+export PATH="$PATH:/Applications/MEGAcmd.app/Contents/MacOS"
+
 # JAVA PATH
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home"
 export PATH="$PATH:$JAVA_HOME/bin"
@@ -64,6 +67,12 @@ export PATH="$PATH:$GOPATH/bin"
 # PYTHON 3
 export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 
+# CURL
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -74,3 +83,4 @@ autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
