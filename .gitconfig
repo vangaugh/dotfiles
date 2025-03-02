@@ -1,0 +1,32 @@
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[core]
+    editor = nano
+    excludesfile = ~/.gitignore_global
+
+[color]
+    ui = true
+
+[credential]
+    helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
+[user]
+	name = vangaugh
+	email = vangaughm1@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDj6NgnFyj9G2+Ipt1PORegI+i1ib1NcWthWd5K6N86s vangaughm1@gmail.com
+
+[commit]
+	gpgsign = true
+
+[init]
+    defaultBranch = main
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[gpg]
+	format = ssh
