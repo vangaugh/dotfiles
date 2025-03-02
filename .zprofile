@@ -6,4 +6,4 @@ export GPG_TTY=$(tty)
 # export PATH="$PATH:/usr/local/bin"
 
 # Added by `rbenv init` on Fri Feb 14 19:43:33 PST 2025
-eval "$(rbenv init - --no-rehash zsh)"
+# eval "$(rbenv init - --no-rehash zsh)"
