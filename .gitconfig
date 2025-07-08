@@ -19,7 +19,7 @@
 [user]
 	name = vangaugh
 	email = vangaughm1@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDj6NgnFyj9G2+Ipt1PORegI+i1ib1NcWthWd5K6N86s vangaughm1@gmail.com
+	signingkey = /Users/vangaugh/.ssh/id_github.pub
 
 [commit]
 	gpgsign = true
@@ -28,5 +28,7 @@
     defaultBranch = main
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[tag]
+	gpgSign = true
 [gpg]
 	format = ssh
