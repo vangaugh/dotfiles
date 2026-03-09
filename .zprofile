@@ -1,48 +1,30 @@
 # LOAD HOMEBREW
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# PATH for User
-PATH="/opt/homebrew/bin:$PATH"
+# BREW TWEAKS - SPEED
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_DOWNLOAD_CONCURRENCY=10
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 # CRONTAB NANO DEFAULT
 export EDITOR="/opt/homebrew/bin/nano"
 export VISUAL="$EDITOR"
 export PAGER="less"
 
-# remove duplicat entries from $PATH
-# zsh uses $path array along with $PATH
+# Remove Duplicate Entries From $PATH
 typeset -U PATH path
 
-# LOAD GPG
-export GPG_TTY=$(tty)
-
-# You may need to manually set your language environment
+# Language Environment
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# MEGA-CMD
-#export PATH="$PATH:/Applications/MEGAcmd.app/Contents/MacOS"
-
-# PYTHON 3
-export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
-export PATH="/opt/homebrew/Cellar/tcl-tk/bin:$PATH"
-
-# ASDF (NODE & RUBY & MORE PACAKGE MANAGER)
-## https://blog.driftingruby.com/my-development-environment-on-macos-15-sequoia/
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-# JAVA PATH
+# Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home"
-export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$JAVA_HOME/bin:$PATH"
 
-# GOLANG
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-
-# ANDROID SDK PATHS
-export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
-export PATH="$PATH:$ANDROID_HOME/emulator"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/tools/bin"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-export ANDROID_SDK_ROOT="$ANDROID_HOME"
+# ASDF
+if [ -d "$HOME/.asdf" ]; then
+  export ASDF_DATA_DIR="$HOME/.asdf"
+  export PATH="${ASDF_DATA_DIR}/shims:$PATH"
+fi

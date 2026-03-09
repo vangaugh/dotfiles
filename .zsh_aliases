@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 # CUSTOM ALIASES FOR MAC
-# UPDATED JULY 4, 2024
 
 # EASIER NAVIGATION: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -19,12 +18,63 @@ alias config='/opt/homebrew/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Change .wget-hsts file location
 alias wget="wget --hsts-file ~/.local/wget-hsts"
 
-# USING COLORLS COMMAND TO MAKE LL AND LS LOOK AWESOME
-alias grep="grep --color=always"
-# alias ll="ls --color=always -l"
-# alias l="ls --color=always -la"
-# alias la="ls --color=always -A"
-alias ls="colorls --color=always -h --group-directories-first"
+# EZA Modern ls
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza --icons --group-directories-first --git"
+  alias ll="eza -l --icons --group-directories-first --git"
+  alias la="eza -la --icons --group-directories-first --git"
+  alias lt="eza --tree --icons --git-ignore --level=2"
+fi
+
+# Enhanced cat
+# alias cat="bat -n --paging=never"
+# alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+
+if command -v bat >/dev/null 2>&1; then
+  alias cat="bat"
+  alias batp="bat --style=numbers --paging=always"
+fi
+
+# Ripgrep search (faster than grep)
+if command -v rg >/dev/null 2>&1; then
+  alias grep="rg"
+fi
+
+# smarter cd using zoxide
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+  alias z="zoxide"
+  # quick jump with fuzzy interactive mode
+  alias zi="zoxide query"
+fi
+
+# Ensure no alias conflicts
+unalias gco 2>/dev/null
+unalias ff 2>/dev/null
+unalias frg 2>/dev/null
+
+# Fuzzy find git branches
+function gco {
+  local branch
+  branch=$(git branch --all | fzf | sed "s#remotes/origin/##;s#\* ##")
+  [ -n "$branch" ] && git checkout "$branch"
+}
+
+# Fuzzy find files
+function ff {
+  fzf --preview="bat --style=numbers --color=always --line-range :300 {}"
+}
+
+# Search project with ripgrep + fzf
+function frg {
+  local res
+  res=$(rg --color=always --line-number --no-heading --smart-case "${*:-}" | \
+    fzf --ansi --delimiter ':' --preview 'bat --color=always {1} --highlight-line {2}')
+  [ -n "$res" ] && ${EDITOR:-vim} "$(echo "$res" | cut -d: -f1)" +$(echo "$res" | cut -d: -f2)
+}
+
+# RUST BREACH SEARCH TOOL
+# alias breach_search="clear && ~/Code/Work/python_projects/rust_search_tool/target/release/breach_search"
 
 # ECHO PATH
 alias path='echo -e ${PATH//:/\\n}'
@@ -47,12 +97,12 @@ alias jj="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv 
 alias getip="curl http://ipecho.net/plain; echo"
 alias localip="ipconfig getifaddr en1"
 
-# UPDATE NPM
+# UPDATE NPM--group-directories-first
 alias npmup="npm update -g && npm install npm@latest -g"
 
 # REPLACING CAT COMMAND WITH BAT
 # alias cat="bat -n --paging=never"
-alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+# alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
 
 # DELETE .DS_Store FILES
 alias ds="find . -type f \( -name ".DS_Store" -o -name "._.DS_Store" \) -delete -print 2>&1 | grep -v "Permission denied""
@@ -70,7 +120,9 @@ alias ve='python3 -m venv .venv && source .venv/bin/activate'
 alias reqinstall='python3 -m pip install -r requirements.txt'
 
 # UPDATE BREW && FULL SYSTEM UPDATE
-alias brewup="brew update && brew upgrade && brew autoremove && brew cleanup --prune=all && brew doctor"
+alias brewup="brew update && brew upgrade && brew cleanup -s && brew autoremove && brew doctor"
+alias brewfix='brew tap | while read tap; do repo="$(brew --repo $tap)"; git -C "$repo" reset --hard; git -C "$repo" clean -fd; git -C "$repo" checkout main 2>/dev/null || git -C "$repo" checkout master 2>/dev/null; git -C "$repo" pull; done'
+alias brewdeep="brew update-reset && brew update && brew upgrade && brew cleanup -s && brew autoremove && brew doctor"
 alias kk="sudo softwareupdate -i -a;"
 
 # LAUNCH GOOGLE CHROME
@@ -82,6 +134,16 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Pipe my public key to my clipboard.
 alias pbcopy="more ~/.ssh/id_vg-macmini.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Git Function
+function acp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
+
+# yazi — Fast TUI File Manager
+alias yy="yazi"
 
 ## USEFUL COMMANDS
 
