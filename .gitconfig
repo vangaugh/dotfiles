@@ -26,9 +26,9 @@
 
 [init]
     defaultBranch = main
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 [tag]
 	gpgSign = true
 [gpg]
 	format = ssh
+[credential "https://dev.azure.com"]
+	useHttpPath = true
